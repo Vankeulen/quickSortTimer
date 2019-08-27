@@ -6,7 +6,6 @@ public class QuickSort_Times {
         int[] arr = generateRandomArray(0, 100, 10);
         int[] ar1 = Arrays.copyOf(arr, arr.length);
 
-
         printQuickSort(arr, false);
         printQuickSort(ar1, true);
     } //main
