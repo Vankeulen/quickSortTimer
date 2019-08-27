@@ -4,7 +4,7 @@ public class QuickSort_Times {
 
     public static void main(String[] arg) {
         int[] arr = generateRandomArray(0, 100, 10);
-        int[] ar1 = arr;
+        int[] ar1 = Arrays.copyOf(arr, arr.length);
 
 
         printQuickSort(arr, false);
@@ -16,9 +16,8 @@ public class QuickSort_Times {
         int right = arr.length - 1;
         System.out.println("Array length: " + arr.length);
         System.out.println("Unsorted array: " + Arrays.toString(arr));
-        long timeTook = 0;
+        long timeTook;
         if (!mot) {
-//            medianOfThree(arr, left, right);
             timeTook = quickSortTime(arr, left, right, false);
         } else {
             timeTook = quickSortTime(arr, left, right, true);
@@ -50,7 +49,7 @@ public class QuickSort_Times {
         }
     }
 
-    private static int partition(int arr[], int left, int right) {
+    private static int partition(int[] arr, int left, int right) {
         int pivot = arr[right];
         int i = (left - 1);
 
@@ -58,7 +57,6 @@ public class QuickSort_Times {
             if (arr[j] <= pivot) {
                 i++;
 
-//                swap(arr, arr[i], arr[j]);
                 int swapTemp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = swapTemp;
